@@ -14,8 +14,6 @@ class BMICalculator extends StatelessWidget {
         brightness: Brightness.light,
         useMaterial3: true,
         ),
-      // darkTheme: ThemeData.dark(),
-      // themeMode: ThemeMode.dark,
       debugShowCheckedModeBanner: false,
       home: InputPage(),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'reusable_card.dart';
 import 'gender_column.dart';
 import 'constants.dart';
+import 'results.dart';
 
 enum Gender {male, female, none}
 
@@ -181,15 +182,21 @@ class InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: colorScheme.primary,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: kBottomContainerHeight,
-            child: Center(
-              child: Text("CALCULATE BMI",
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  color: colorScheme.onPrimary,
+          GestureDetector(
+            onTap: () {Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Results()),
+            );},
+            child: Container(
+              color: colorScheme.primary,
+              margin: EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: kBottomContainerHeight,
+              child: Center(
+                child: Text("CALCULATE BMI",
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    color: colorScheme.onPrimary,
+                  ),
                 ),
               ),
             ),
