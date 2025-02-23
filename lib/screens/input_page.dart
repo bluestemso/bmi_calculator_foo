@@ -1,7 +1,8 @@
+import 'package:bmi_calculator_foo/calculator_brain.dart';
 import 'package:flutter/material.dart';
-import 'reusable_card.dart';
-import 'gender_column.dart';
-import 'constants.dart';
+import '../components/reusable_card.dart';
+import '../components/gender_column.dart';
+import '../constants.dart';
 import 'results.dart';
 
 enum Gender {male, female, none}
@@ -183,10 +184,17 @@ class InputPageState extends State<InputPage> {
             ),
           ),
           GestureDetector(
-            onTap: () {Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Results()),
-            );},
+            onTap: () {
+              CalculatorBrain calc = CalculatorBrain(height: height, weight: weight);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Results(
+                  bmi: calc.calculateBMI(),
+                  result: calc.getResult(),
+                  interpretation: calc.getInterpretation(),
+                  ),
+                ),
+              );},
             child: Container(
               color: colorScheme.primary,
               margin: EdgeInsets.only(top: 10.0),
